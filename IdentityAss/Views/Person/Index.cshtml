@@ -1,0 +1,48 @@
+﻿@model IEnumerable<IdentityAss.Models.Person>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3><b>P</b>eople</h3>
+
+<p class="glyphicon glyphicon-align-right">
+    @Html.ActionLink("Create New Person", "Create")
+</p>
+<div style="color:wheat">
+    <table class="table" border="1" style="background-color:goldenrod">
+        <tr>
+            <th style="font-size:large">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th style="font-size:large">
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th style="font-size:large">
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th style="font-size:large">Modify Info</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr style="background-color:dodgerblue">
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td style="background-color:goldenrod">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

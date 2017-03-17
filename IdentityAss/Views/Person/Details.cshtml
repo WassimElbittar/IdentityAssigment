@@ -1,0 +1,28 @@
+﻿@model IdentityAss.Models.Person
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+<table class="table" border="1">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+    </tr>
+    <tr>
+        <td>@Html.DisplayFor(model => model.FirstName)</td>
+        <td>@Html.DisplayFor(model => model.LastName)</td>
+        <td>@Html.DisplayFor(model => model.Address)</td>
+    </tr>
+</table>
+
+</div>
+<p>
+    <button class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.ID })</button> |
+    <button class="btn btn-default">@Html.ActionLink("Back to List", "Index")</button>
+</p>

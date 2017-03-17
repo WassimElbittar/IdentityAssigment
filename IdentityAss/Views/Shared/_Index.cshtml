@@ -1,0 +1,33 @@
+﻿@model IEnumerable<IdentityAss.Models.City>
+
+<button>
+    @Html.ActionLink("Create New City", "Create","City")
+</button>
+<table class="table" border="1" style="background-color:goldenrod">
+    <tr>
+        <th>
+            Country
+        </th>
+        <th>
+            City
+        </th>
+        <th>Modify the City</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+               | @Html.ActionLink("Edit", "Edit", "City", new { id = item.ID },null)  |
+                 @Html.ActionLink("Delete", "Delete", "City", new { id = item.ID },null)|
+            </td>
+        </tr>
+    }
+
+</table>

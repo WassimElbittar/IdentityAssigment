@@ -1,0 +1,46 @@
+﻿@model IEnumerable<IdentityAss.Models.Country>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><b>C</b>ountries</h2>
+
+<p class="glyphicon glyphicon-align-right">
+    @Html.ActionLink("Create New Country", "Create")
+</p>
+<div style="color:wheat">
+<table class="table" border="1" style="background-color:dodgerblue">
+    <tr>
+        <th style="background-color:goldenrod">
+            Country
+        </th>
+        <th style="background-color:goldenrod">
+            City
+        </th>
+
+        <th>Modify the country</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="background-color:navy">
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @*@foreach (var city in item.City)
+            {
+                <span>@city.Name </span>
+            }*@
+            @Html.Partial("_Index", item.City)
+        </td>
+        <td style="background-color:goldenrod">
+           |@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })|
+        </td>
+    </tr>
+}
+
+</table>
+    </div>
